@@ -11,3 +11,11 @@ The application will allow users to **customize their web page** including and n
 This application will be useful for people wanting to create their own website to share interesting information 
 to the world. It could be to blog cool summer trips, or it could be to display their personal endeavors. I am 
 pursuing this project because I love the idea of allowing people to share information more easily.
+
+## User Stories
+
+As a user, I want to be able to:
+- Add a title to the top of the web page
+- Add a body of text to the web page
+- Change the background color of the banner under the title
+- Change the text size of my text on the web page

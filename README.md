@@ -1,11 +1,13 @@
-# My Personal Project
+# Website Builder
 
-## A subtitle
+## Create a HTML file for your own personalized website
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+The application will allow users to **customize their web page** including and not limited to:
+- Title
+- Title banner color selection
+- Body of text
+- Styling of text
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+This application will be useful for people wanting to create their own website to share interesting information 
+to the world. It could be to blog cool summer trips, or it could be to display their personal endeavors. I am 
+pursuing this project because I love the idea of allowing people to share information more easily.

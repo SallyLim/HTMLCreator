@@ -16,9 +16,13 @@ public class WebPageTest {
 
     @Test
     void testConstructor() {
+        String expectedTitle = page.getTitle().getText();
+
         assertEquals(1, page.getLengthOfElements());
         assertEquals(1, page.getLengthOfDescription());
         assertEquals("Title", page.getDescription(1));
+        assertEquals("Sample Title", expectedTitle);
+
     }
 
     @Test
@@ -29,6 +33,23 @@ public class WebPageTest {
         assertEquals(2, page.getLengthOfElements());
         assertEquals(2, page.getLengthOfDescription());
         assertEquals("Text Box 1", page.getDescription(2));
+    }
+
+    @Test
+    void testGetTextBoxExists() {
+        StringElements titleSearched = page.getTextBubble("Title");
+
+        assertEquals(page.getTitle(), titleSearched);
+    }
+
+    @Test
+    void testGetTextBoxNotExists() {
+        page.addTextBubble();
+        page.addTextDescription("Text Box 1");
+
+        StringElements text = page.getTextBubble("Text Box 2");
+
+        assertEquals(null, text);
     }
 
     @Test

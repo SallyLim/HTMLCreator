@@ -3,9 +3,7 @@ package model;
 //Interface for all text related elements of the web page
 public interface StringElements {
 
-    void concatText(String addedText);
-
-    void deleteText(String deletedText);
+    void setText(String newText);
 
     void setFont(int textSize);
 

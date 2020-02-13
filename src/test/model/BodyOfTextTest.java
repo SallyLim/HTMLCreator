@@ -22,19 +22,11 @@ public class BodyOfTextTest {
     }
 
     @Test
-    void testConcatText() {
-        textA.concatText(" Default");
+    void testSetText(){
+        textA.setText("New Text");
 
-        assertEquals("Sample Text Default", textA.getText());
+        assertEquals("New Text", textA.getText());
     }
-
-    @Test
-    void testDeleteText() {
-        textA.deleteText("Text");
-
-        assertEquals("Sample ", textA.getText());
-    }
-
 
     @Test
     void testSetFont() {

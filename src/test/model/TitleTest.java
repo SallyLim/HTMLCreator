@@ -21,17 +21,10 @@ public class TitleTest {
     }
 
     @Test
-    void testConcatText() {
-        title.concatText(" Test");
+    void testSetText() {
+        title.setText("New Title");
 
-        assertEquals("Sample Title Test", title.getText());
-    }
-
-    @Test
-    void testDeleteText() {
-        title.deleteText("ample Title");
-
-        assertEquals("S", title.getText());
+        assertEquals("New Title", title.getText());
     }
 
     @Test

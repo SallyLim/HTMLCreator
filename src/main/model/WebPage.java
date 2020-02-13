@@ -40,32 +40,22 @@ public class WebPage {
         return elementsDescription.get(index);
     }
 
-    //EFFECTS: gets description of element given the specific object
-    public String getTextDescriptionOfElement(StringElements text) {
-
-        int indexOfElement = elementsOnPage.indexOf(text);
-        int indexOfDescription = 0;
-
-        for (StringElements element : elementsOnPage) {
-            if (element.equals(text)) {
-                indexOfDescription = elementsOnPage.indexOf(text);
-                break;
-            }
-        }
-        return elementsDescription.get(indexOfDescription);
+    //EFFECTS: get title object of page
+    public Title getTitle() {
+        return title;
     }
 
-    //EFFECTS: gets object given the description of element
+    //EFFECTS: gets object given the description of element or return null if not found
     public StringElements getTextBubble(String description) {
         int indexOfElement = 0;
 
         for (String elementDescription : elementsDescription) {
             if (elementDescription.equalsIgnoreCase(description)) {
                 indexOfElement = elementsDescription.indexOf(description);
-                break;
+                return elementsOnPage.get(indexOfElement);
             }
         }
-        return elementsOnPage.get(indexOfElement);
+        return null;
     }
 
     //EFFECTS: returns the number of elements of page

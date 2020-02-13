@@ -14,22 +14,10 @@ public class Title implements StringElements {
     }
 
     //MODIFIES: this
-    //EFFECTS: adds text to existing string text of title
+    //EFFECTS: changes current title to new given title
     @Override
-    public void concatText(String addedText) {
-        this.title = this.title.concat(addedText);
-    }
-
-    //MODIFIES: this
-    //REQUIRES: deletedText.length() <= title.length() and deletedText characters must be the same characters
-    //          as the title.substring of title.length() - deletingText.length() to the end of title
-    //EFFECTS: deletes texts starting from right to left like a backspace button
-    @Override
-    public void deleteText(String deletedText) {
-        int deletingTextLength = deletedText.length();
-        int endIndexOfNewText = this.title.length() - deletingTextLength;
-
-        this.title = this.title.substring(0,endIndexOfNewText);
+    public void setText(String newTitle) {
+        title = newTitle;
     }
 
     //MODIFIES: this

@@ -12,22 +12,10 @@ public class BodyOfText implements StringElements {
     }
 
     //MODIFIES: this
-    //EFFECTS: adds new string of text to original string of text
+    //EFFECTS: changes current body of text to new given text
     @Override
-    public void concatText(String addedText) {
-        this.textBody = this.textBody.concat(addedText);
-    }
-
-    //MODIFIES: this
-    //REQUIRES: deletedText.length() <= textBody.length() and deletedText characters must be the same characters
-    //          as the textBody.substring of textBody.length() - deletingText.length() to the end of textBody
-    //EFFECTS: deletes texts starting from right to left like a backspace button
-    @Override
-    public void deleteText(String deletedText) {
-        int deletingTextLength = deletedText.length();
-        int endIndexOfNewText = this.textBody.length() - deletingTextLength;
-
-        this.textBody = this.textBody.substring(0, endIndexOfNewText);
+    public void setText(String newText) {
+        textBody = newText;
     }
 
     //MODIFIES: this

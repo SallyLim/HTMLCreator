@@ -71,7 +71,7 @@ public class WebPage {
     //MODIFIES: this
     //REQUIRES: elementsDescription and elementsOnPage are not empty
     //EFFECTS: removes the object from page given its description
-    public void removeTextBubble(String description) {
+    public void removeTextBubble(String description) throws NoElementException {
         int indexOfElement = 0;
 
         for (String elementDescription : elementsDescription) {
@@ -79,9 +79,10 @@ public class WebPage {
                 indexOfElement = elementsDescription.indexOf(description);
                 elementsDescription.remove(description);
                 elementsOnPage.remove(indexOfElement);
-                break;
+                return;
             }
         }
+        throw new NoElementException("Text Bubble not found.");
     }
 
     //EFFECTS: returns a string of the html version of the web page

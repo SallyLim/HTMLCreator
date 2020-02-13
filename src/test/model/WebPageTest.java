@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //Tests for methods of WebPage class
 public class WebPageTest {
@@ -53,7 +54,7 @@ public class WebPageTest {
     }
 
     @Test
-    void testRemoveTextBubble() {
+    void testRemoveTextBubbleNoException() throws NoElementException {
         page.addTextBubble();
         page.addTextDescription("test text");
 
@@ -62,6 +63,23 @@ public class WebPageTest {
         assertEquals(1, page.getLengthOfDescription());
         assertEquals(1, page.getLengthOfElements());
     }
+
+    @Test
+    void testRemoveTextBubbleException() throws NoElementException {
+        page.addTextBubble();
+        page.addTextDescription("test text");
+
+        boolean thrown = false;
+
+        try {
+            page.removeTextBubble("test");
+        } catch (NoElementException n) {
+            thrown = true;
+        }
+
+        assertTrue(thrown);
+    }
+
 
     @Test
     void testReturnHtmlBasic() {

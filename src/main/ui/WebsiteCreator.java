@@ -1,5 +1,6 @@
 package ui;
 
+import model.NoElementException;
 import model.StringElements;
 import model.Title;
 import model.WebPage;
@@ -12,13 +13,13 @@ public class WebsiteCreator {
     private Scanner userInput;
 
     //EFFECTS: runs the website creator app
-    public WebsiteCreator() {
+    public WebsiteCreator() throws NoElementException {
         runWebsiteCreatorApp();
     }
 
     //MODIFIES: this
     //EFFECTS: continues to run app and performs user inputs until user wants to quit
-    private void runWebsiteCreatorApp() {
+    private void runWebsiteCreatorApp() throws NoElementException {
         userInput = new Scanner(System.in);
 
         String keyInput = "";
@@ -43,11 +44,13 @@ public class WebsiteCreator {
 
     //MODIFIES: this
     //EFFECTS: performs user inputs according to key press
-    private void doKeyInput(String input) {
+    private void doKeyInput(String input) throws NoElementException {
         if (input.equals("t")) {
             changeTitle();
         } else if (input.equals("n")) {
             addText();
+        } else if (input.equals("d")) {
+            deleteText();
         } else if (input.equals("b")) {
             changeText();
         } else if (input.equals("f")) {
@@ -68,6 +71,7 @@ public class WebsiteCreator {
         System.out.println("\nCustomize your website further by pressing...");
         System.out.println("\nt - to change title");
         System.out.println("\nn - to add a new body of text");
+        System.out.println("\nd - to delete a body of text");
         System.out.println("\nb - to change an existing body of text");
         System.out.println("\nf - to change the title's font size");
         System.out.println("\ns - to change the body of text's font size");
@@ -75,6 +79,20 @@ public class WebsiteCreator {
         System.out.println("\n");
         System.out.println("\nPress p to see the current layout of your website");
         System.out.println("\nPress q to quit and receive html file");
+    }
+
+    //MODIFIES: this
+    //EFFECTS: deletes a body of text
+    private void deleteText() throws NoElementException {
+        System.out.println("\nEnter description of text box you would like to delete:");
+        String textDescription = userInput.nextLine();
+
+        try {
+            website.removeTextBubble(textDescription);
+            System.out.println("\nThe specified text box has been removed.");
+        } catch (NoElementException n) {
+            System.out.println("\nNo text box of the name has been found.");
+        }
     }
 
     //MODIFIES: this

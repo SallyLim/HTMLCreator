@@ -14,8 +14,16 @@ pursuing this project because I love the idea of allowing people to share inform
 
 ## User Stories
 
+**FUNCTIONALITY**
+
 As a user, I want to be able to:
 - Add a title to the top of the web page
 - Add a body of text to the web page
 - Change the background color of the banner under the title
 - Change the text size of my text on the web page
+
+**DATA PERSISTENCE**
+
+As a user, I want to be able to:
+- save all the elements I have added to my website during editing and when quitting of the application
+- have an option to load a saved file and resume editing OR start creating a new website in menu options

@@ -4,8 +4,12 @@ import model.NoElementException;
 import model.StringElements;
 import model.Title;
 import model.WebPage;
+import persistence.SavePage;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import static persistence.SavePage.PAGELOCATION;
 
 // Application to allow users to interactively create their own website
 public class WebsiteCreator {
@@ -13,17 +17,19 @@ public class WebsiteCreator {
     private Scanner userInput;
 
     //EFFECTS: runs the website creator app
-    public WebsiteCreator() throws NoElementException {
+    public WebsiteCreator() throws NoElementException, IOException {
         runWebsiteCreatorApp();
     }
 
     //MODIFIES: this
-    //EFFECTS: continues to run app and performs user inputs until user wants to quit
-    private void runWebsiteCreatorApp() throws NoElementException {
+    //EFFECTS: runs app and performs user inputs until user wants to quit
+    private void runWebsiteCreatorApp() throws NoElementException, IOException {
         userInput = new Scanner(System.in);
-
         String keyInput = "";
 
+        loadPage();
+
+        //TODO: when add load account, if it is the first time making webpage, create new one
         website = new WebPage();
 
         while (true) {
@@ -33,6 +39,7 @@ public class WebsiteCreator {
 
             if (keyInput.equals("q")) {
                 returnHtmlFile();
+                toSave();
                 System.out.println("\nProgram quitting.");
                 break;
             } else {
@@ -42,9 +49,34 @@ public class WebsiteCreator {
 
     }
 
+    //EFFECTS: asks user if wants to save current state to file before quitting, if yes then saves to file
+    private void toSave() throws IOException {
+        System.out.println("\nWould you like to save your current website? Y/N");
+        String yorN = userInput.nextLine();
+
+        if (yorN.equals("Y") || yorN.equals("y")) {
+            savePage();
+        }
+    }
+
+    //EFFECTS: saves current version of page to PAGELOCATION
+    private void savePage() throws IOException {
+        SavePage save = new SavePage();
+
+        String json = save.makeJson(website);
+        save.toFile(json);
+
+        System.out.println("\nFile has been successfully saved to" + PAGELOCATION);
+    }
+
+    //TODO: implement and comment
+    private void loadPage() {
+
+    }
+
     //MODIFIES: this
     //EFFECTS: performs user inputs according to key press
-    private void doKeyInput(String input) throws NoElementException {
+    private void doKeyInput(String input) throws NoElementException, IOException {
         if (input.equals("t")) {
             changeTitle();
         } else if (input.equals("n")) {
@@ -59,6 +91,8 @@ public class WebsiteCreator {
             changeTextFontSize();
         } else if (input.equals("c")) {
             changeBannerColor();
+        } else if (input.equals("x")) {
+            savePage();
         } else if (input.equals("p")) {
             informCurrentState();
         } else {
@@ -76,6 +110,7 @@ public class WebsiteCreator {
         System.out.println("\nf - to change the title's font size");
         System.out.println("\ns - to change the body of text's font size");
         System.out.println("\nc - to change the banner color");
+        System.out.println("\nx - to save page to file");
         System.out.println("\n");
         System.out.println("\nPress p to see the current layout of your website");
         System.out.println("\nPress q to quit and receive html file");

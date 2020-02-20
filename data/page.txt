@@ -1,0 +1,21 @@
+{
+  "elementsOnPage": [
+    {
+      "title": "tie",
+      "fontSize": 46,
+      "banner": {
+        "color": "lavender"
+      }
+    }
+  ],
+  "elementsDescription": [
+    "Title"
+  ],
+  "title": {
+    "title": "tie",
+    "fontSize": 46,
+    "banner": {
+      "color": "lavender"
+    }
+  }
+}

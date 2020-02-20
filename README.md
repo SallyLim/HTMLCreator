@@ -25,5 +25,5 @@ As a user, I want to be able to:
 **DATA PERSISTENCE**
 
 As a user, I want to be able to:
-- save all the elements I have added to my website during editing and when quitting of the application
-- have an option to load a saved file and resume editing OR start creating a new website in menu options
+- save all the elements of my website at anytime and when quitting of the application
+- have previous session loaded when application is opened

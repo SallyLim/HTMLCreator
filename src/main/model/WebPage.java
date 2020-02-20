@@ -45,7 +45,7 @@ public class WebPage {
 
     //EFFECTS: gets object given the description of element or return null if not found
     public StringElements getTextBubble(String description) {
-        int indexOfElement = 0;
+        int indexOfElement;
 
         for (String elementDescription : elementsDescription) {
             if (elementDescription.equalsIgnoreCase(description)) {
@@ -70,7 +70,7 @@ public class WebPage {
     //REQUIRES: elementsDescription and elementsOnPage are not empty
     //EFFECTS: removes the object from page given its description
     public void removeTextBubble(String description) throws NoElementException {
-        int indexOfElement = 0;
+        int indexOfElement;
 
         for (String elementDescription : elementsDescription) {
             if (elementDescription.equalsIgnoreCase(description)) {
@@ -83,6 +83,7 @@ public class WebPage {
         throw new NoElementException("Text Bubble not found.");
     }
 
+    //TODO try to make this actually return a html file
     //EFFECTS: returns a string of the html version of the web page
     public String returnHtml() {
         String html = "<!DOCTYPE html>\n" + "<html>\n";

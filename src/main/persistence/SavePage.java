@@ -3,6 +3,7 @@ package persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import model.StringElements;
 import model.WebPage;
 
 import java.io.FileWriter;
@@ -20,14 +21,14 @@ public class SavePage {
     public SavePage() {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
+        builder.registerTypeAdapter(StringElements.class, new ElementInterfaceAdapter());
 
         gson = builder.create();
     }
 
     //EFFECTS: makes Json String from web page data
     public String makeJson(WebPage page) {
-        String json = gson.toJson(page);
-        return json;
+        return gson.toJson(page);
     }
 
     //MODIFIES: file at PAGELOCATION
@@ -42,7 +43,7 @@ public class SavePage {
 
     //EFFECTS: gets saved file as string
     public String getFileAsString() throws Exception {
-        String fileAsString = "";
+        String fileAsString;
         fileAsString = new String(Files.readAllBytes(Paths.get(PAGELOCATION)));
         return fileAsString;
     }

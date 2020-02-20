@@ -4,6 +4,7 @@ import model.NoElementException;
 import model.StringElements;
 import model.Title;
 import model.WebPage;
+import persistence.LoadPage;
 import persistence.SavePage;
 
 import java.io.IOException;
@@ -25,12 +26,9 @@ public class WebsiteCreator {
     //EFFECTS: runs app and performs user inputs until user wants to quit
     private void runWebsiteCreatorApp() throws NoElementException, IOException {
         userInput = new Scanner(System.in);
-        String keyInput = "";
+        String keyInput;
 
         loadPage();
-
-        //TODO: when add load account, if it is the first time making webpage, create new one
-        website = new WebPage();
 
         while (true) {
             displayOptions();
@@ -69,9 +67,18 @@ public class WebsiteCreator {
         System.out.println("\nFile has been successfully saved to" + PAGELOCATION);
     }
 
-    //TODO: implement and comment
-    private void loadPage() {
 
+    //MODIFIES: this
+    //EFFECTS: loads web page from PAGELOCATION; if no page is found, create new default web page
+    private void loadPage() {
+        LoadPage load = new LoadPage();
+
+        try {
+            String json = load.fromFileToJson();
+            website = load.fromJsonToPage(json);
+        } catch (IOException e) {
+            website = new WebPage();
+        }
     }
 
     //MODIFIES: this
@@ -118,7 +125,7 @@ public class WebsiteCreator {
 
     //MODIFIES: this
     //EFFECTS: deletes a body of text
-    private void deleteText() throws NoElementException {
+    private void deleteText() {
         System.out.println("\nEnter description of text box you would like to delete:");
         String textDescription = userInput.nextLine();
 

@@ -1,18 +1,29 @@
 {
   "elementsOnPage": [
     {
-      "title": "tie",
-      "fontSize": 46,
-      "banner": {
-        "color": "lavender"
+      "Class": "model.Title",
+      "Description": {
+        "title": "Sample Title",
+        "fontSize": 46,
+        "banner": {
+          "color": "lavender"
+        }
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
       }
     }
   ],
   "elementsDescription": [
-    "Title"
+    "Title",
+    "titletitle"
   ],
   "title": {
-    "title": "tie",
+    "title": "Sample Title",
     "fontSize": 46,
     "banner": {
       "color": "lavender"

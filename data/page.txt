@@ -9,18 +9,10 @@
           "color": "lavender"
         }
       }
-    },
-    {
-      "Class": "model.BodyOfText",
-      "Description": {
-        "textBody": "Sample Text",
-        "fontSize": 20
-      }
     }
   ],
   "elementsDescription": [
-    "Title",
-    "titletitle"
+    "Title"
   ],
   "title": {
     "title": "Sample Title",

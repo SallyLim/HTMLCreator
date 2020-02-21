@@ -1,6 +1,8 @@
 package persistence;
 
 
+import com.google.gson.JsonParseException;
+import model.NoElementException;
 import model.WebPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //tests making and getting json and to and from file of SavePage and LoadPage by comparing if they are the same
 public class SaveAndLoadTests {
@@ -41,7 +44,6 @@ public class SaveAndLoadTests {
         assertEquals(loadedString, savedFile);
     }
 
-    //TODO: fix
     @Test
     void testSamePage() throws IOException {
         String savedJson = saving.makeJson(testPage);
@@ -49,7 +51,10 @@ public class SaveAndLoadTests {
         String loadedJson = loading.fromFileToJson();
         WebPage loadedPage = loading.fromJsonToPage(loadedJson);
 
-        assertEquals(testPage, loadedPage);
+
+        assertEquals(testPage.getDescription(1), loadedPage.getDescription(1));
+        assertEquals(testPage.getLengthOfElements(), loadedPage.getLengthOfElements());
+        assertEquals(testPage.returnHtml(), loadedPage.returnHtml());
     }
 
 }

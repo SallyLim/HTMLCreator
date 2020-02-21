@@ -5,11 +5,13 @@ import model.StringElements;
 
 import java.lang.reflect.Type;
 
-//TODO comments and add test?
+//helps when web page is converted to a file and back, the specific classes of the Element interface can be reserved
 public class ElementInterfaceAdapter implements JsonSerializer<StringElements>, JsonDeserializer<StringElements> {
     private static final String CLASS = "Class";
     private static final String DESCRIPTION = "Description";
 
+    //EFFECTS: helps when file is converted back to a web page, the specific classes within the Element interface is
+    //         correctly identified and converted to
     @Override
     public StringElements deserialize(JsonElement jsonElement, Type type,
                               JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
@@ -22,6 +24,7 @@ public class ElementInterfaceAdapter implements JsonSerializer<StringElements>, 
         return jsonDeserializationContext.deserialize(json.get(DESCRIPTION), objectClass);
     }
 
+    //EFFECTS: reads comment left on file of the class type and identifies them
     private Class getObjectsClass(String classString) {
         try {
             return Class.forName(classString);
@@ -30,6 +33,9 @@ public class ElementInterfaceAdapter implements JsonSerializer<StringElements>, 
         }
     }
 
+    //MODIFIES: file at PAGELOCATION
+    //EFFECTS: when web page is converted to a file, the specific classes within the Element interface is marked so
+    //         when file is converted back to web page, they can be correctly identified
     @Override
     public JsonElement serialize(StringElements stringElements, Type type,
                                  JsonSerializationContext jsonSerializationContext) {

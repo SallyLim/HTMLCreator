@@ -16,7 +16,7 @@ import static persistence.SavePage.PAGELOCATION;
 public class LoadPage {
     private static Gson gson;
 
-    //TODO: comments
+    //EFFECTS: constructs a loader that converts a file back to a web page
     public LoadPage() {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
@@ -25,16 +25,16 @@ public class LoadPage {
         gson = builder.create();
     }
 
+    //EFFECTS: converts file to a Json string
     public String fromFileToJson() throws IOException {
         String fileAsString;
         fileAsString = new String(Files.readAllBytes(Paths.get(PAGELOCATION)));
         return fileAsString;
     }
 
+    //EFFECTS: converts Json string to a web page
     public WebPage fromJsonToPage(String json) {
         return gson.fromJson(json, WebPage.class);
     }
-
-    //TODO: any other getters or setters?
 
 }

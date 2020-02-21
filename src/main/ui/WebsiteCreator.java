@@ -1,15 +1,14 @@
 package ui;
 
-import model.NoElementException;
-import model.StringElements;
-import model.Title;
-import model.WebPage;
+import com.google.gson.JsonParseException;
+import model.*;
 import persistence.LoadPage;
 import persistence.SavePage;
 
 import java.io.IOException;
 import java.util.Scanner;
 
+import static model.HtmlFileMaker.HTMLLOCATION;
 import static persistence.SavePage.PAGELOCATION;
 
 // Application to allow users to interactively create their own website
@@ -28,7 +27,11 @@ public class WebsiteCreator {
         userInput = new Scanner(System.in);
         String keyInput;
 
-        loadPage();
+        try {
+            loadPage();
+        } catch (JsonParseException e) {
+            System.out.println("Error opening file.");
+        }
 
         while (true) {
             displayOptions();
@@ -57,6 +60,7 @@ public class WebsiteCreator {
         }
     }
 
+    //MODIFIES: file at PAGELOCATION
     //EFFECTS: saves current version of page to PAGELOCATION
     private void savePage() throws IOException {
         SavePage save = new SavePage();
@@ -83,7 +87,7 @@ public class WebsiteCreator {
 
     //MODIFIES: this
     //EFFECTS: performs user inputs according to key press
-    private void doKeyInput(String input) throws NoElementException, IOException {
+    private void doKeyInput(String input) throws IOException {
         if (input.equals("t")) {
             changeTitle();
         } else if (input.equals("n")) {
@@ -235,9 +239,14 @@ public class WebsiteCreator {
         System.out.println("\nThe banner color has been changed to " + checkNewColor);
     }
 
+    //MODIFIES: file at HTMLLOCATION
     //EFFECTS: returns the html file version of web page
-    private void returnHtmlFile() {
-        String html = website.returnHtml();
+    private void returnHtmlFile() throws IOException {
+        HtmlFileMaker htmlFileMaker = new HtmlFileMaker(website);
+        String html = htmlFileMaker.getHtml();
+        htmlFileMaker.htmlToFile(html);
+
+        System.out.println("\nThe following html version of your web page has been saved to" + HTMLLOCATION);
         System.out.println(html);
     }
 

@@ -83,7 +83,6 @@ public class WebPage {
         throw new NoElementException("Text Bubble not found.");
     }
 
-    //TODO try to make this actually return a html file
     //EFFECTS: returns a string of the html version of the web page
     public String returnHtml() {
         String html = "<!DOCTYPE html>\n" + "<html>\n";

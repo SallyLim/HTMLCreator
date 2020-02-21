@@ -45,6 +45,45 @@ public class SaveAndLoadTests {
     }
 
     @Test
+    void testToAndFromFileClassNotFoundException() {
+        String testJson = "{\n" +
+                "  \"elementsOnPage\": [\n" +
+                "    {\n" +
+                "      \"Class\": \"model.Test\",\n" +
+                "      \"Description\": {\n" +
+                "        \"title\": \"Sample Title\",\n" +
+                "        \"fontSize\": 46,\n" +
+                "        \"banner\": {\n" +
+                "          \"color\": \"lavender\"\n" +
+                "        }\n" +
+                "      }\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"elementsDescription\": [\n" +
+                "    \"Title\"\n" +
+                "  ],\n" +
+                "  \"title\": {\n" +
+                "    \"title\": \"Sample Title\",\n" +
+                "    \"fontSize\": 46,\n" +
+                "    \"banner\": {\n" +
+                "      \"color\": \"lavender\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+        boolean thrown = false;
+
+        try{
+            loading.fromJsonToPage(testJson);
+        } catch (JsonParseException e) {
+            thrown = true;
+    }
+
+        assertTrue(thrown);
+
+    }
+
+    @Test
     void testSamePage() throws IOException {
         String savedJson = saving.makeJson(testPage);
         saving.toFile(savedJson);

@@ -28,8 +28,7 @@ public class WebPageTest {
 
     @Test
     void testAddTextBubbleAndDescription() {
-        page.addTextBubble();
-        page.addTextDescription("Text Box 1");
+        page.addTextBubbleAndDescription("Text Box 1");
 
         assertEquals(2, page.getLengthOfElements());
         assertEquals(2, page.getLengthOfDescription());

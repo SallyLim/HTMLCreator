@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 
 //Puts together all of the elements of the page
+/**
+ * INVARIANT: ElementsOnPage list and ElementsDescription list are the same size
+ * each element has a description associated, and vice versa, at matching indices
+ */
 public class WebPage {
     private ArrayList<StringElements> elementsOnPage;
     private ArrayList<String> elementsDescription;
@@ -17,6 +21,11 @@ public class WebPage {
         this.title = new Title();
         elementsOnPage.add(title);
         elementsDescription.add("Title");
+    }
+
+    public void addTextBubbleAndDescription(String description) {
+        addTextBubble();
+        addTextDescription(description);
     }
 
     //MODIFIES: this
@@ -38,6 +47,7 @@ public class WebPage {
         return elementsDescription.get(index);
     }
 
+    //REQUIRES: title is in elementsOnPage list
     //EFFECTS: get title object of page
     public Title getTitle() {
         return title;
@@ -56,11 +66,13 @@ public class WebPage {
         return null;
     }
 
+    //REQUIRES: getLengthOfElements = getLengthOfDescription
     //EFFECTS: returns the number of elements of page
     public int getLengthOfElements() {
         return elementsOnPage.size();
     }
 
+    //REQUIRES: getLengthOfElements = getLengthOfDescription
     //EFFECTS: returns the number of element descriptions
     public int getLengthOfDescription() {
         return elementsDescription.size();

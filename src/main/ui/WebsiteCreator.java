@@ -1,11 +1,13 @@
 package ui;
 
 import com.google.gson.JsonParseException;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import model.*;
 import persistence.LoadPage;
 import persistence.SavePage;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static model.HtmlFileMaker.HTMLLOCATION;
@@ -17,15 +19,14 @@ public class WebsiteCreator {
     private Scanner userInput;
 
     //EFFECTS: runs the website creator app
-    public WebsiteCreator() throws NoElementException, IOException {
+    public WebsiteCreator() {
         runWebsiteCreatorApp();
     }
 
     //MODIFIES: this
     //EFFECTS: runs app and performs user inputs until user wants to quit
-    private void runWebsiteCreatorApp() throws NoElementException, IOException {
+    private void runWebsiteCreatorApp() {
         userInput = new Scanner(System.in);
-        String keyInput;
 
         try {
             loadPage();
@@ -36,11 +37,17 @@ public class WebsiteCreator {
         while (true) {
             displayOptions();
 
-            keyInput = userInput.nextLine();
+            String keyInput = userInput.nextLine();
 
             if (keyInput.equals("q")) {
-                returnHtmlFile();
+                try {
+                    returnHtmlFile();
+                } catch (IOException e) {
+                    System.out.println("Unable to save file. Try again later");
+                }
+
                 toSave();
+
                 System.out.println("\nProgram quitting.");
                 break;
             } else {
@@ -50,8 +57,9 @@ public class WebsiteCreator {
 
     }
 
+
     //EFFECTS: asks user if wants to save current state to file before quitting, if yes then saves to file
-    private void toSave() throws IOException {
+    private void toSave() {
         System.out.println("\nWould you like to save your current website? Y/N");
         String yorN = userInput.nextLine();
 
@@ -62,11 +70,16 @@ public class WebsiteCreator {
 
     //MODIFIES: file at PAGELOCATION
     //EFFECTS: saves current version of page to PAGELOCATION
-    private void savePage() throws IOException {
+    private void savePage() {
         SavePage save = new SavePage();
 
         String json = save.makeJson(website);
-        save.toFile(json);
+
+        try {
+            save.toFile(json);
+        } catch (IOException e) {
+            System.out.println("\nError saving file. Please try again.");
+        }
 
         System.out.println("\nFile has been successfully saved to" + PAGELOCATION);
     }
@@ -87,7 +100,7 @@ public class WebsiteCreator {
 
     //MODIFIES: this
     //EFFECTS: performs user inputs according to key press
-    private void doKeyInput(String input) throws IOException {
+    private void doKeyInput(String input) {
         if (input.equals("t")) {
             changeTitle();
         } else if (input.equals("n")) {
@@ -159,11 +172,10 @@ public class WebsiteCreator {
     //MODIFIES: this
     //EFFECTS: adds a BodyOfText to the page
     private void addText() {
-        website.addTextBubble();
         System.out.println("\nEnter two word text description:");
         String textDescription = userInput.nextLine();
+        website.addTextBubbleAndDescription(textDescription);
         System.out.println("\nThe text box has been named: " + textDescription);
-        website.addTextDescription(textDescription);
     }
 
     //MODIFIES: this

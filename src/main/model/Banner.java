@@ -10,7 +10,7 @@ public class Banner {
 
     //EFFECTS: has a color and it is set to a default color when initiated
     public Banner() {
-        this.color = "lavender";
+        this.color = "blue";
     }
 
     //EFFECTS: returns the current color of banner

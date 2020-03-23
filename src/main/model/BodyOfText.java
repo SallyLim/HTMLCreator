@@ -48,4 +48,14 @@ public class BodyOfText implements StringElements {
         return html;
     }
 
+    @Override
+    public String toString() {
+        String[] arr = getText().split(" ", 4);
+
+        if (arr.length < 4) {
+            return getText();
+        }
+        return arr[0] + " " + arr[1] + " " + arr[2];
+    }
+
 }

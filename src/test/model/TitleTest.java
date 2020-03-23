@@ -17,7 +17,7 @@ public class TitleTest {
     void testConstructor() {
         assertEquals("Sample Title", title.getText());
         assertEquals(46, title.getFontSize());
-        assertEquals("lavender", title.getBanner());
+        assertEquals("blue", title.getBanner());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class TitleTest {
 
     @Test
     void testReturnStringElementHtml() {
-        String html = "<h1 style=\"color:lavender;font-size:46px;\">Sample Title</h1>";
+        String html = "<h1 style=\"background: blue; font-size: 46px\">Sample Title</h1>";
 
         assertEquals(html, title.returnStringElementHtml());
     }

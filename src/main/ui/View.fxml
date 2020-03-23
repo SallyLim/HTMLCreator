@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.20527156549520767" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="359.0">
+         <children>
+            <Label layoutX="6.0" layoutY="53.0" prefHeight="18.0" prefWidth="202.0" text="Current Layout :" />
+            <TreeView fx:id="currentLayoutList" layoutX="6.0" layoutY="93.0" prefHeight="567.0" prefWidth="243.0" />
+            <Button fx:id="quitButton" layoutX="7.0" layoutY="2.0" mnemonicParsing="false" text="Quit" />
+            <Button fx:id="saveButton" layoutX="53.0" layoutY="2.0" mnemonicParsing="false" text="Save" />
+            <Separator layoutX="7.0" layoutY="37.0" prefHeight="4.0" prefWidth="232.0" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="746.0" prefWidth="1075.0">
+         <children>
+            <SplitPane dividerPositions="0.6947388706879939" layoutX="176.0" layoutY="-11.0" prefHeight="721.0" prefWidth="976.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-47.0" AnchorPane.topAnchor="-11.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="388.0">
+                     <children>
+                        <SwingNode fx:id="htmlViewer" layoutX="0.0" layoutY="50.0" />
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="154.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="41.0" prefHeight="18.0" prefWidth="134.0" text="Edit Menu : " />
+                        <TreeView fx:id="editControlBar" layoutX="7.0" layoutY="76.0" prefHeight="522.0" prefWidth="254.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

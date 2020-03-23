@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class HtmlFileMaker {
-    public static String HTMLLOCATION = "./data/html.txt";
+    public static String HTMLLOCATION = "./data/html.html";
     public String html;
     public WebPage webPage;
 

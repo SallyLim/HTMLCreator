@@ -12,7 +12,6 @@ public class BodyOfTextTest {
     @BeforeEach
     void runBefore() {
         textA = new BodyOfText();
-        //textB = new BodyOfText();
     }
 
     @Test

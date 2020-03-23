@@ -44,10 +44,15 @@ public class Title implements StringElements {
     public String returnStringElementHtml() {
         String html = "";
 
-        html = html.concat("<h1 style=\"color:" + banner.getBannerColor()
-        + ";font-size:" + fontSize + "px;\">" + this.title + "</h1>");
+        html = html.concat("<h1 style=\"background: " + banner.getBannerColor()
+        + "; font-size: " + fontSize + "px\">" + this.title + "</h1>");
 
         return html;
+    }
+
+    @Override
+    public String toString() {
+        return "Title";
     }
 
     //EFFECTS: returns banner color

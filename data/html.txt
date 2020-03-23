@@ -1,4 +1,0 @@
-<!DOCTYPE html>
-<html>
-<h1 style="color:lavender;font-size:46px;">Sample Title</h1>
-<P style="font-size:20px;">Sample Text</P>

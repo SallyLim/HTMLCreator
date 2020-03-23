@@ -27,3 +27,26 @@ As a user, I want to be able to:
 As a user, I want to be able to:
 - save all the elements of my website at anytime and when quitting of the application
 - have previous session loaded when application is opened
+
+## Instructions for Grader
+- You can generate the first required event by ... 
+  When app is run for the first time, the title is already generated. It can be seen on the top of the html viewer in 
+  the middle. You an do other edits by clicking on the edit menu on the right or clicking on title on the left hand 
+  layout menu.
+  
+- You can generate the second required event by...
+  Add a body of text to the web page by clicking on "Add new body of text" at the edit control bar on the right side
+  under "BODY OF TEXT edits". Afterwards, you will be able to see that a new body of text has been added on the layout 
+  menu on the left side under "Body of text". You can also see the change in the html viewer in the middle. You an do 
+  other edits by clicking on the edit menu on the right or clicking on title on the left hand layout menu.
+  
+- You can locate my visual component by...
+  The html viewer in the middle of the app constantly updates to show what the page will look like.
+
+- You can save the state of my application by...
+  The "Save" button on the top left can be used to save progress. When pressing "Quit", it will also ask you if you 
+  want to save before quitting as well.
+  
+- You can reload the state of my application by...
+  When the application is reopened, the previous session will be automatically loaded, real-time changes can be viewed
+  in the html viewer.

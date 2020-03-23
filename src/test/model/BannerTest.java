@@ -16,7 +16,7 @@ public class BannerTest {
 
     @Test
     void testGetBannerColorDefault(){
-        assertEquals("lavender", banner.getBannerColor());
+        assertEquals("blue", banner.getBannerColor());
     }
 
     @Test

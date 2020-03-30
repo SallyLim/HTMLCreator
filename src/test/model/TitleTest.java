@@ -17,7 +17,7 @@ public class TitleTest {
     void testConstructor() {
         assertEquals("Sample Title", title.getText());
         assertEquals(46, title.getFontSize());
-        assertEquals("blue", title.getBanner());
+        assertEquals("blue", title.getBanner().getBannerColor());
     }
 
     @Test
@@ -41,10 +41,4 @@ public class TitleTest {
         assertEquals(html, title.returnStringElementHtml());
     }
 
-    @Test
-    void testChangeBanner() {
-        title.changeBanner("blue");
-
-        assertEquals("blue", title.getBanner());
-    }
 }

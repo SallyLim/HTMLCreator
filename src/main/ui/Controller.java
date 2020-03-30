@@ -284,7 +284,7 @@ public class Controller extends Application {
     private void editBannerColor() {
         Dialog<String> dialog = new TextInputDialog("Enter a color name...");
         dialog.setTitle("Set new banner color");
-        String currentColor = websiteCreator.website.getTitle().getBanner();
+        String currentColor = websiteCreator.website.getTitle().getBanner().getBannerColor();
         dialog.setHeaderText("The current color is " + currentColor + ".\n"
                 + "Enter a new color from the choices below:\n" + "- Red\n- Blue\n- Orange\n");
         Optional<String> result = dialog.showAndWait();
@@ -294,7 +294,7 @@ public class Controller extends Application {
             entered = result.get();
         }
 
-        websiteCreator.website.getTitle().changeBanner(entered);
+        websiteCreator.website.getTitle().getBanner().changeBannerColor(entered);
     }
 
 

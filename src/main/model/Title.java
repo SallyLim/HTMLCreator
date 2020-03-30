@@ -55,15 +55,10 @@ public class Title implements StringElements {
         return "Title";
     }
 
-    //EFFECTS: returns banner color
-    public String getBanner() {
-        return banner.getBannerColor();
+    //EFFECTS: returns banner
+    public Banner getBanner() {
+        return banner;
     }
 
-    //MODIFIES: this
-    //EFFECTS: changes banner color
-    public void changeBanner(String differentColor) {
-        this.banner.changeBannerColor(differentColor.toLowerCase());
-    }
 
 }

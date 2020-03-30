@@ -90,7 +90,6 @@ public class SaveAndLoadTests {
         String loadedJson = loading.fromFileToJson();
         WebPage loadedPage = loading.fromJsonToPage(loadedJson);
 
-        assertEquals(testPage.getLengthOfElements(), loadedPage.getLengthOfElements());
         assertEquals(testPage.returnHtml(), loadedPage.returnHtml());
     }
 

@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 
 //Puts together all of the elements of the page
-/**
- * INVARIANT: ElementsOnPage list and ElementsDescription list are the same size
- * each element has a description associated, and vice versa, at matching indices
- */
 public class WebPage {
     private ArrayList<StringElements> elementsOnPage;
 
@@ -49,11 +45,6 @@ public class WebPage {
         return (Title) elementsOnPage.get(0);
     }
 
-    //REQUIRES: getLengthOfElements = getLengthOfDescription
-    //EFFECTS: returns the number of elements of page
-    public int getLengthOfElements() {
-        return elementsOnPage.size();
-    }
 
     //EFFECTS: returns a string of the html version of the web page
     public String returnHtml() {

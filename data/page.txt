@@ -13,7 +13,7 @@
     {
       "Class": "model.BodyOfText",
       "Description": {
-        "textBody": "asdfasdf",
+        "textBody": "hih hi",
         "fontSize": 20
       }
     },

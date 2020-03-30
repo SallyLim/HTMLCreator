@@ -19,7 +19,6 @@ public class WebPageTest {
     void testConstructor() {
         String expectedTitle = page.getTitle().getText();
 
-        assertEquals(1, page.getLengthOfElements());
         assertEquals("Sample Title", expectedTitle);
     }
 

@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import persistence.HtmlFileMaker;
 import persistence.LoadPage;
 import persistence.SavePage;
 
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 //Does background work of the ui
 public class WebsiteCreator {
-    public WebPage website;
+    private WebPage website;
 
     //EFFECTS: runs the website creator app
     public WebsiteCreator() {
@@ -43,6 +44,10 @@ public class WebsiteCreator {
         HtmlFileMaker htmlFileMaker = new HtmlFileMaker(website);
         String html = htmlFileMaker.getHtml();
         htmlFileMaker.htmlToFile(html);
+    }
+
+    public WebPage getWebsite() {
+        return website;
     }
 
 }

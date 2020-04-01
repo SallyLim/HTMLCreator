@@ -1,4 +1,6 @@
-package model;
+package persistence;
+
+import model.WebPage;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +11,6 @@ import java.nio.file.Paths;
 public class HtmlFileMaker {
     public static String HTMLLOCATION = "./data/html.html";
     public String html;
-    public WebPage webPage;
 
     //EFFECTS: constructs saver that converts web page data to a file
     public HtmlFileMaker(WebPage webPage) {

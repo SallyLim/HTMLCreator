@@ -3,11 +3,123 @@
     {
       "Class": "model.Title",
       "Description": {
-        "title": "Sample Title",
-        "fontSize": 46,
+        "title": "hihi",
+        "fontSize": 60,
         "banner": {
-          "color": "blue"
+          "color": "red"
         }
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
+      }
+    },
+    {
+      "Class": "model.BodyOfText",
+      "Description": {
+        "textBody": "Sample Text",
+        "fontSize": 20
       }
     }
   ]

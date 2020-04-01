@@ -1,7 +1,7 @@
 package model;
 
 //Title for the web page which implements the StringElements interface
-public class Title implements StringElements {
+public class Title implements StringElements, StringCreator {
     private String title;
     private int fontSize;
     private Banner banner;

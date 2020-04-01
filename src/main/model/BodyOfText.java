@@ -1,7 +1,7 @@
 package model;
 
 //The body of text that can be added to the page and implements StringElements interface
-public class BodyOfText implements StringElements {
+public class BodyOfText implements StringElements, StringCreator {
     private String textBody;
     private int fontSize;
 

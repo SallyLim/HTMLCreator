@@ -55,3 +55,16 @@ As a user, I want to be able to:
 - Included a type hierarchy in my code:
 > The type hierarchy consists of the StringElements Interface which is implemented by the following classes: BodyOfText
   and Title.
+
+## Phase 4: Task 3
+- Changes made to improve the design of my code after a design analysis:
+1. I extracted an Interface out of the Title and BodyOfText classes called the 
+   StringCreator. This new interface houses two methods regarding extracting strings out of different StringElements
+   and I made this change because I thought it made sense to separate the task of doing modifications to the Elements
+   themselves from creating HTML code or extracting strings to disply in the UI from the Elements.
+   
+2. I split my GUI Controller class into different classes according to their different responsibilities. The Controller
+   class that used to have everything now only starts the application and handles user inputs with event handlers.
+   The physical edits to the back end of the program after the user identifies changes wanting to be done is done by 
+   the Editor class. The Configure class does configurations when the application starts and is responsible for the
+   configuration of the SwingContent html viewer and the edit menu bars' configurations.

@@ -2,15 +2,14 @@ package persistence;
 
 
 import com.google.gson.JsonParseException;
-import model.NoElementException;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import model.WebPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 //tests making and getting json and to and from file of SavePage and LoadPage by comparing if they are the same
 public class SaveAndLoadTests {
@@ -26,20 +25,33 @@ public class SaveAndLoadTests {
     }
 
     @Test
-    void testMakeAndGetJson() throws IOException {
+    void testMakeAndGetJson(){
         String savedJson = saving.makeJson(testPage);
-        saving.toFile(savedJson);
-        String loadedJson = loading.fromFileToJson();
+        String loadedJson = "";
+
+        try {
+            saving.toFile(savedJson);
+            loadedJson = loading.fromFileToJson();
+        } catch (IOException e) {
+            fail("failed to open and save file.");
+        }
 
         assertEquals(savedJson, loadedJson);
     }
 
     @Test
-    void testToAndFromFile() throws Exception {
+    void testToAndFromFile() {
         String savedJson = saving.makeJson(testPage);
-        saving.toFile(savedJson);
-        String savedFile = saving.getFileAsString();
-        String loadedString = loading.fromFileToJson();
+        String savedFile = "";
+        String loadedString = "";
+
+        try {
+            saving.toFile(savedJson);
+            savedFile = saving.getFileAsString();
+            loadedString = loading.fromFileToJson();
+        } catch (Exception e) {
+            fail("failed to open and save file.");
+        }
 
         assertEquals(loadedString, savedFile);
     }
@@ -84,10 +96,17 @@ public class SaveAndLoadTests {
     }
 
     @Test
-    void testSamePage() throws IOException {
+    void testSamePage() {
         String savedJson = saving.makeJson(testPage);
-        saving.toFile(savedJson);
-        String loadedJson = loading.fromFileToJson();
+        String loadedJson = "";
+
+        try {
+            saving.toFile(savedJson);
+            loadedJson = loading.fromFileToJson();
+        } catch (IOException e) {
+            fail("failed to open and save file.");
+
+        }
         WebPage loadedPage = loading.fromJsonToPage(loadedJson);
 
         assertEquals(testPage.returnHtml(), loadedPage.returnHtml());

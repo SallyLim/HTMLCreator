@@ -3,25 +3,11 @@
     {
       "Class": "model.Title",
       "Description": {
-        "title": "asdf",
+        "title": "Sample Title",
         "fontSize": 46,
         "banner": {
           "color": "blue"
         }
-      }
-    },
-    {
-      "Class": "model.BodyOfText",
-      "Description": {
-        "textBody": "hih hi",
-        "fontSize": 20
-      }
-    },
-    {
-      "Class": "model.BodyOfText",
-      "Description": {
-        "textBody": "Sample Text",
-        "fontSize": 20
       }
     }
   ]

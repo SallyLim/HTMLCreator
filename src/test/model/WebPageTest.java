@@ -20,6 +20,7 @@ public class WebPageTest {
         String expectedTitle = page.getTitle().getText();
 
         assertEquals("Sample Title", expectedTitle);
+        assertEquals(0, page.returnElementsOnPage().size());
     }
 
     @Test
@@ -33,12 +34,15 @@ public class WebPageTest {
     @Test
     void testReturnHtmlWithBody() {
         page.addTextBubble();
+        page.removeText(0);
+        page.addTextBubble();
 
         String html = "<!DOCTYPE html>\n" + "<html>\n" +
                 "<h1 style=\"background: blue; font-size: 46px\">Sample Title</h1>\n"
                 + "<P style=\"font-size:20px;\">Sample Text</P>\n";
 
         assertEquals(html, page.returnHtml());
+        assertEquals(1, page.returnElementsOnPage().size());
     }
 
 }

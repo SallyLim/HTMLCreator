@@ -7,11 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BodyOfTextTest {
     BodyOfText textA;
-    //BodyOfText textB;
+    BodyOfText textB;
 
     @BeforeEach
     void runBefore() {
         textA = new BodyOfText();
+        textB = new BodyOfText();
     }
 
     @Test
@@ -23,8 +24,11 @@ public class BodyOfTextTest {
     @Test
     void testSetText(){
         textA.setText("New Text");
+        textB.setText("I love you a lot.");
 
         assertEquals("New Text", textA.getText());
+        assertEquals("New Text", textA.toString());
+        assertEquals("I love you", textB.toString());
     }
 
     @Test

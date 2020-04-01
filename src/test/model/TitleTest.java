@@ -18,6 +18,7 @@ public class TitleTest {
         assertEquals("Sample Title", title.getText());
         assertEquals(46, title.getFontSize());
         assertEquals("blue", title.getBanner().getBannerColor());
+        assertEquals("Title", title.toString());
     }
 
     @Test
